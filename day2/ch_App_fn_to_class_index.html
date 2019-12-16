@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+
+<head>
+<title>React Bootcamp day 2</title>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id = 'app'></div>
+
+    <script type = 'text/babel'>
+//babel is transforming jsx to react code
+        function FriendList (props) {
+            return (
+                <ul>
+                   {props.list.map((name) => (
+                    <li key={name}>
+                        {name}
+                    </li>
+                   ))}
+                </ul>
+            )
+        }
+//list-ic is defined here for DOM and used in FriendList, Babel is doing this
+        class App extends React.Component {
+         render() {
+            const friends = ['Sasha', 'Masha', 'Kvasha'];
+            return (
+                <div>
+                    <FriendList list={friends} />
+                </div>
+            )
+          }
+        }
+
+		ReactDOM.render(
+            <App />,
+            document.getElementById('app')
+		)
+
+
+    </script>
+
+</body>
+</html>
